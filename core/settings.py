@@ -105,7 +105,8 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'social_media', 
+        'NAME': 'your_database_name',  # Replace with your database name
+        # You can also use an environment variable for the database name
         'USER': 'postgres',
         'PASSWORD': 'admin',
         'HOST': '127.0.0.1', 
