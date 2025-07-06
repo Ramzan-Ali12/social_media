@@ -4,11 +4,52 @@ A simple social media REST API built with Django and Django REST Framework.
 Features user registration, authentication, post creation, and liking/unliking posts.
 
 ## Features
+🧑‍💻 Features to Implement:
+1. Authentication:
+Use Django’s built-in User model.
 
-- User registration and login (token-based authentication)
-- Create, update, delete, and list posts
-- Like/unlike posts
-- API documentation with Swagger and Redoc
+
+Provide basic registration and login endpoints (Token or Session-based auth is fine).
+
+
+2. Posts:
+- Authenticated users can:
+
+
+- Create a post
+
+
+- Update their own post
+
+
+- Delete their own post
+
+
+- Anyone (including anonymous users) can:
+
+
+- List all posts
+
+
+- View individual post details (including like count)
+
+
+
+3. Likes:
+- Authenticated users can:
+
+
+- Like or unlike a post
+
+
+- Like only once per post
+
+
+- Anonymous users can:
+
+
+- See the number of likes on each post
+
 
 ## Tech Stack
 
