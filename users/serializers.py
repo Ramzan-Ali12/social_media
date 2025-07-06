@@ -26,7 +26,15 @@ class RegisterSerializer(serializers.ModelSerializer):
         )
         return user
 
+class LoginSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    password = serializers.CharField(write_only=True)
 
+    def validate(self, data):
+        if not User.objects.filter(email=data['email']).exists():
+            raise serializers.ValidationError("User with this email does not exist.")
+        return data
+    
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User

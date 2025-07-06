@@ -12,6 +12,13 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = ['id', 'author', 'content', 'created_at']  # Make sure 'author' is included here
 
+    def validate(self, data):
+        author = self.context['request'].user
+        content = data.get('content')
+        if Post.objects.filter(author=author, content=content).exists():
+            raise serializers.ValidationError("You have already posted this content.")
+        return data
+    
     def get_like_count(self, obj):
         return obj.likes.count()
 

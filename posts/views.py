@@ -30,17 +30,17 @@ class PostViewSet(viewsets.ModelViewSet):
         detail=True,
         methods=['post'],
         permission_classes=[IsAuthenticated],
-        url_path='toggle-like',
-        url_name='toggle_like'
+        url_path='like',
+        url_name='Like Post'
     )
-    def like(self, request, pk=None):
+    def toggle_like(self, request, pk=None):
         """
         POST /posts/{pk}/like/
         - If not liked yet: creates a Like and returns 201 + the like data
         - If already liked: deletes the Like and returns 204 No Content
         """
         post = self.get_object()
-        like, created = Like.objects.get_or_create(user=request.user, post=post)
+        like, created = Like.objects.get_or_create(author=request.user, post=post)
 
         if not created:
             # already liked → unlike

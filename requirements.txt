@@ -2,3 +2,4 @@ Django>=5.1
 djangorestframework>=3.14
 psycopg2>=2.9
 python-dotenv>=1.0
+drf_yasg>=1.21

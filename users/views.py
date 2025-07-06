@@ -1,16 +1,21 @@
 from django.contrib.auth import authenticate, get_user_model
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializers import RegisterSerializer
+from .serializers import *
+from rest_framework.permissions import AllowAny
 
 class RegisterView(APIView):
+    permission_classes = [AllowAny]
     """
     POST email, username, password → creates a new user.
     """
+    @swagger_auto_schema(request_body=RegisterSerializer)
+    
     def post(self, request, *args, **kwargs):
         email = request.data.get('email')
         username = request.data.get('username')
@@ -31,6 +36,7 @@ class RegisterView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 class LoginView(ObtainAuthToken):
+    @swagger_auto_schema(request_body=LoginSerializer)
     def post(self, request, *args, **kwargs):
         email = request.data.get('email')
         password = request.data.get('password')
