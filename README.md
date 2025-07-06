@@ -9,9 +9,6 @@ Features user registration, authentication, post creation, and liking/unliking p
 Use Django’s built-in User model.
 
 
-Provide basic registration and login endpoints (Token or Session-based auth is fine).
-
-
 2. Posts:
 - Authenticated users can:
 
