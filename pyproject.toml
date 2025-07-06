@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "social-media"
+version = "0.1.0"
+description = ""
+authors = ["Muhammad-Ramzan12 <mramzanali258@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = ">=5.1"
+djangorestframework = ">=3.14"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
